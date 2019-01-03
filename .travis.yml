@@ -7,4 +7,4 @@ before_script:
 - dotnet publish -c Release hello-netcore-mvc.csproj -o hello-netcore-mvc-publish
 script:
 - dotnet hello-netcore-mvc-publish/hello-netcore-mvc.dll >> /dev/null &
-- curl -s localhost:5000 | grep -i 'Hello .Net Core MVC!' 
+- curl -v 127.0.0.1:5000 | grep -i 'Hello .Net Core MVC!' 
