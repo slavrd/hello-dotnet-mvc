@@ -1,5 +1,11 @@
-language: generic
 dist: xenial
 sudo: required
+language: csharp
+dotnet: 2.1.500
+mono: none
+before_script:
+- dotnet publish -c Release hello-netcore-mvc.csproj -o hello-netcore-mvc-publish
+- dotnet hello-netcore-mvc-publish/hello-netcore-mvc.dll&
+- sleep 5
 script:
-  - exit 0
+- curl -s http://127.0.0.1:5000 | grep -i 'Hello .Net Core MVC!' >> /dev/null
