@@ -10,7 +10,7 @@ before_script:
 script:
 - curl -s http://127.0.0.1:5000 | grep -i 'Hello .Net Core MVC!' >> /dev/null
 before_deploy:
-- zip -r9 zip -r9 hello-netcore-mvc.zip hello-netcore-mvc/
+- zip -r9 hello-netcore-mvc.zip hello-netcore-mvc/
 deploy:
   provider: releases
   on:
