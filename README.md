@@ -24,6 +24,6 @@ config.vm.network "forwarded_port", guest: 5000, host: 5000
 ## Run the project
 
 * to compile the project to a library - `dotnet publish`
-* to start the web server with the application - `dotnet bin/Debug/netcoreapp2.1/publish/hello-netcore-mvc.dll &`
+* to start the web server with the application - `dotnet bin/Debug/netcoreapp2.1/publish/hello-netcore-mvc.dll --urls http://0.0.0.0:5000 &`
 
 The web server will be listening for http requests on `port 5000`. You can access it from the host and guest machines by making an http request to `http://localhost:5000`
