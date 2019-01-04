@@ -14,9 +14,16 @@ Or if you dont won't to install the .NetCore SDK on your system use the included
 * Login to the machine `vagrant ssh`
 * The project will be in `~/hello-netcore-mvc/` directory
 
+Note that the Vagrant configuration will create the following port forwarding `host:5000 => guest:5000`. In case you need to use a different port you can change the host port by editing `vagrant/Vagrantfile`:
+
+```Ruby
+# change the host port to a desired free port on your system
+config.vm.network "forwarded_port", guest: 5000, host: 5000
+```
+
 ## Run the project
 
 * to compile the project to a library - `dotnet publish`
 * to start the web server with the application - `dotnet bin/Debug/netcoreapp2.1/publish/hello-netcore-mvc.dll &`
 
-The web server will be listening for http requests on port 5000
+The web server will be listening for http requests on `port 5000`. You can access it from the host and guest machines by making an http request to `http://localhost:5000`
