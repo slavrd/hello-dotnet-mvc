@@ -9,3 +9,16 @@ before_script:
 - sleep 5
 script:
 - curl -s http://127.0.0.1:5000 | grep -i 'Hello .Net Core MVC!' >> /dev/null
+before_deploy:
+- pushd hello-netcore-mvc-publish
+- zip -r9 ../hello-netcore-mvc.zip *
+- popd
+deploy:
+  provider: releases
+  on:
+    repo: slavrd/hello-netcore-mvc
+    tags: true
+  file: hello-netcore-mvc.zip
+  skip_cleanup: true
+  api_key:
+    secure: PEBjEV9TvoM1407Qve2HJ/rn6Gq01o9vSzcwmCK7aVHp7qNHFUFlDqImedXW/GVePbtuiHhez3pMNteI2S055pi89//3XO5oEmABbOcPoHdb2bJpGaC2iVmUuhlka/xX59BKO+SL3QulcquGdvuNbZDYP1/vYgL/fAP6AdAPPanRj/XwRQyB12HOjqdj3PCBS4Hu7ojVstUQmLMjMdmgGEHLs7z7aUQKgrhsoPfTVQDyzJTR/M5NdLmAgIxD/CeYbjvInjD9HB5chBCLwYzy5Y/6ujHhby6OQMRrGaj2/hrZ7A8WMg3SFDWjOgeiQQTh2h2Fo0pcVYM21HQhPBwWTeGE7H/OiR9q5m5JVdvDwIs4AfYCevyLdXvizrsuf2/p1EVel59l2SQ+8x6gMBUrtGgyeLMo6s9zJrfihLqk0STAN8a/Srp6RsqR56RytCGKe6fckVIQah+WD0RgESTFRZUEWFM1uhuqsBQBFaa48QCwyfogqsaqHQFdNxGZngG29p4c1RQRCU9r3hSBBe0CCw0joDVcbqxRacnv+x/xFUy9a/+Eshu4PjgF1THZUQ3I/9PBKNWpZ7bo6956bpeBeEsQQ8iyip+nalCaLXTVjHEr+vfu5CUx9A6OWZ6Z7tCjgoTcaOwsvchjrgn+LODRZAGNZHOS4nvQfWc9QkFVcjo=
