@@ -3,7 +3,7 @@
 
 # Define Variables
 INPUT=$1
-CONFIG_STORE_PATH="./nginx-config"
+CONFIG_STORE_PATH="../nginx-configs"
 NGINX_CONFIG_PATH="/etc/nginx/sites-available/default"
 
 # replace config and restart nginx
