@@ -10,7 +10,7 @@ Or if you dont won't to install the .NetCore SDK on your system use the included
 
 * Install VirtualBox - [instructions](https://www.virtualbox.org/wiki/Downloads)
 * Install Vagrant - [instructions](https://www.vagrantup.com/downloads.html)
-* In folder vagrant/ run `vagrant up`
+* In the project root folder run `vagrant up`
 * Login to the machine `vagrant ssh`
 * The project will be in `~/hello-netcore-mvc/` directory
 
@@ -58,5 +58,5 @@ The main advantages to doing this are:
 
 * Switch traffic between the two versions:
 
-  * In the vagrant VM - `cd /vagrant/scripts`
+  * In the vagrant VM - `cd /vagrant/ops/scripts`
   * Switch the traffic between the environments by using `./switch-nginx-traffic.sh <blue|blue-green|green>`
