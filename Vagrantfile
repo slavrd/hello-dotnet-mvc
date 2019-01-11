@@ -13,12 +13,12 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8080
   
   # basic machine configuration
-  config.vm.provision "shell", path: "scripts/provision.sh"
+  config.vm.provision "shell", path: "ops/scripts/provision.sh"
 
   # deploy 2 different application versoin and start them in parallel
-  config.vm.provision "shell", path: "scripts/deploy-apps.sh"
+  config.vm.provision "shell", path: "ops/scripts/deploy-apps.sh"
 
   # direct traffic on nginx to the "blue" application
-  config.vm.provision "shell", inline: "pushd /vagrant/scripts; ./switch-nginx-traffic.sh blue; popd"
+  config.vm.provision "shell", inline: "pushd /vagrant/ops/scripts; ./switch-nginx-traffic.sh blue; popd"
 
 end
